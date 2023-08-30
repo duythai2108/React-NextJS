@@ -10,6 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         grayf4: "#F4F4F4",
+        grayfc: "#fcfcfc",
+        primaryText: "#11142D",
+        gray80: "#808191",
+        primary: "#475BE8",
+      },
+      spacing: {
+        c10: "10px",
       },
     },
   },
