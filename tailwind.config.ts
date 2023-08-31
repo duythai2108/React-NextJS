@@ -1,19 +1,15 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         grayf4: "#F4F4F4",
-        grayfc: "#fcfcfc",
-        primaryText: "#11142D",
+        grayfc: "#FCFCFC",
         gray80: "#808191",
+        primaryText: "#11142D",
         primary: "#475BE8",
+        secondary: "#DADEFA",
       },
       spacing: {
         c10: "10px",
@@ -22,4 +18,3 @@ const config: Config = {
   },
   plugins: [],
 };
-export default config;

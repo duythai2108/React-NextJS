@@ -18,13 +18,7 @@ const Topbar = () => {
 function Logo({}) {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <Image
-        src="/logo.png"
-        alt="Yariga"
-        width={173}
-        height={35}
-        priority={true}
-      />
+      <Image src="/logo.png" alt="Yariga" width={173} height={35} />
     </Link>
   );
 }

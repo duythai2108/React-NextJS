@@ -10,6 +10,7 @@ const nextConfig = {
         pathname: "/random",
       },
     ],
+    domains: ["images.unsplash.com"],
   },
 };
 
