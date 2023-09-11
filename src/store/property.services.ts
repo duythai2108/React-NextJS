@@ -1,4 +1,5 @@
 import { API_URL } from "@/config";
+import { PropertyItemData } from "@/types/property.type";
 import axios from "axios";
 
 //fake data
@@ -46,6 +47,20 @@ export async function addNewProperty() {
     console.log("🚀 ~ addNewProperty ~ response:", response);
 
     return [];
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getProperty(
+  id: number
+): Promise<PropertyItemData | null | undefined> {
+  try {
+    const response = await axios.get(`${API_URL}/property/${id}`);
+    if (response.status === 200) {
+      return response.data;
+    }
+    return null;
   } catch (error) {
     console.log(error);
   }

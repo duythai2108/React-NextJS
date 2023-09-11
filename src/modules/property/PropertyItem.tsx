@@ -1,4 +1,4 @@
-import { IconBed, IconCross, IconLocation } from "@/components/icons";
+import { IconBeds, IconCross, IconLocation } from "@/components/icons";
 import { PropertyItemData } from "@/types/property.type";
 import Image from "next/image";
 import Link from "next/link";
@@ -37,12 +37,12 @@ const PropertyItem = ({ item }: PropertyItemProps) => {
         </div>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
-            <IconBed></IconBed>
-            <span className="text-xs font-medium">{item.info?.beds}</span>
+            <IconBeds></IconBeds>
+            <span className="text-xs font-medium">{item.facility?.beds}</span>
           </div>
           <div className="flex items-center gap-1">
             <IconCross></IconCross>
-            <span className="text-xs font-medium">{item.info?.area}</span>
+            <span className="text-xs font-medium">{item.facility?.area}</span>
           </div>
         </div>
       </div>

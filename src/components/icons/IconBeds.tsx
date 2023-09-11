@@ -1,6 +1,6 @@
 import React from "react";
 
-const IconBed = () => {
+const IconBeds = () => {
   return (
     <svg
       width={18}
@@ -17,4 +17,4 @@ const IconBed = () => {
   );
 };
 
-export default IconBed;
+export default IconBeds;
