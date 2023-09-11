@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import { spawn } from "child_process";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -63,7 +64,7 @@ const PropertyDetails = () => {
       ></HeadContent>
       <div className="p-5 bg-grayfc rounded-2xl">
         <h2 className="flex items-center gap-5 mb-6 text-xl font-medium">
-          <span>
+          <Link href="/property">
             <svg
               width="9"
               height="16"
@@ -78,7 +79,7 @@ const PropertyDetails = () => {
                 fill="#11142D"
               />
             </svg>
-          </span>
+          </Link>
           Details
         </h2>
         <div className="grid grid-cols-[2fr_1fr] gap-6">
