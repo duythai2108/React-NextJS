@@ -5,11 +5,24 @@ import { useQuery } from "@tanstack/react-query";
 import { PropertyItemData } from "@/types/property.type";
 import { getProperties } from "@/store/property.services";
 import { Dropdown } from "@/components/dropdown";
-import { statusData } from "@/constants/general.const";
-import { TFilter } from "@/types/general.type";
+import {
+  propertyStatusData,
+  propertyTypeData,
+} from "@/constants/general.const";
+import {
+  TFilter,
+  TPropertyStatusData,
+  TPropertyTypeData,
+} from "@/types/general.type";
 import { debounce } from "lodash";
 
 const PropertyList = () => {
+  const [selected, setSelected] = useState({
+    statusText: "Any Status",
+    typeText: "Any Type",
+    countryText: "Any Countries",
+    stateText: "Any States",
+  });
   const [filter, setFilter] = useState<TFilter>({
     text: "",
     status: "",
@@ -18,10 +31,12 @@ const PropertyList = () => {
     state: "",
   });
   const { data, isLoading, error } = useQuery({
-    queryKey: ["properties", filter.text],
+    queryKey: ["properties", filter.text, filter.status, filter.type],
     queryFn: () =>
       getProperties({
         text: filter.text,
+        status: filter.status,
+        type: filter.type,
       }),
     // refetchOnWindowFocus: false,
     cacheTime: 10 * 60 * 1000, //10 min
@@ -37,6 +52,28 @@ const PropertyList = () => {
     },
     500
   );
+  const handleFilterByStatus = (value: TPropertyStatusData["value"]) => {
+    setFilter({
+      ...filter,
+      status: value,
+    });
+    const foundStatus = propertyStatusData.find((item) => item.value === value);
+    setSelected({
+      ...selected,
+      statusText: value ? foundStatus?.label || "" : "Any Status",
+    });
+  };
+  const handleFilterByType = (value: TPropertyTypeData["value"]) => {
+    setFilter({
+      ...filter,
+      type: value,
+    });
+    const foundType = propertyTypeData.find((item) => item.value === value);
+    setSelected({
+      ...selected,
+      typeText: value ? foundType?.label || "" : "Any Type",
+    });
+  };
   if (error) return null;
 
   return (
@@ -62,8 +99,16 @@ const PropertyList = () => {
             onChange={handleFilterProperty}
           />
         </div>
-        <Dropdown data={statusData}></Dropdown>
-        <Dropdown selected="Any Type"></Dropdown>
+        <Dropdown
+          selected={selected.statusText}
+          onClick={handleFilterByStatus}
+          data={propertyStatusData}
+        ></Dropdown>
+        <Dropdown
+          selected={selected.typeText}
+          data={propertyTypeData}
+          onClick={handleFilterByType}
+        ></Dropdown>
         <Dropdown selected="All Countries"></Dropdown>
         <Dropdown selected="All State"></Dropdown>
         <button className="flex items-center gap-2.5 rounded-lg bg-grayf7 p-2 text-xs font-medium text-gray80">
