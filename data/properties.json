@@ -31,5 +31,121 @@
       "address": "North Carolina, USA",
       "properties": 10
     }
+  },
+  {
+    "id": 2,
+    "title": "Metro Jayakarta Hotel & Spa",
+    "address": "North Carolina, USA",
+    "facility": {
+      "beds": 10,
+      "baths": 2,
+      "area": "28M",
+      "smooking-area": true,
+      "kitchen": true,
+      "balcony": true,
+      "wifi": true,
+      "parking-area": true
+    },
+    "status": "sale",
+    "type": "apartments",
+    "price": 7500,
+    "image": ["https://source.unsplash.com/random"],
+    "country": "USA",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rating": 4.5,
+    "state": "North Carolina",
+    "agent": {
+      "name": "Hussain Ahmed",
+      "phone": "+1 234 567 890",
+      "address": "North Carolina, USA",
+      "properties": 10
+    }
+  },
+  {
+    "id": 3,
+    "title": "Metro Jayakarta Hotel & Spa",
+    "address": "North Carolina, USA",
+    "facility": {
+      "beds": 10,
+      "baths": 2,
+      "area": "28M",
+      "smooking-area": true,
+      "kitchen": true,
+      "balcony": true,
+      "wifi": true,
+      "parking-area": true
+    },
+    "status": "sale",
+    "type": "apartments",
+    "price": 7500,
+    "image": ["https://source.unsplash.com/random"],
+    "country": "USA",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rating": 4.5,
+    "state": "North Carolina",
+    "agent": {
+      "name": "Hussain Ahmed",
+      "phone": "+1 234 567 890",
+      "address": "North Carolina, USA",
+      "properties": 10
+    }
+  },
+  {
+    "id": 4,
+    "title": "Metro Jayakarta Hotel & Spa",
+    "address": "North Carolina, USA",
+    "facility": {
+      "beds": 10,
+      "baths": 2,
+      "area": "28M",
+      "smooking-area": true,
+      "kitchen": true,
+      "balcony": true,
+      "wifi": true,
+      "parking-area": true
+    },
+    "status": "sale",
+    "type": "apartments",
+    "price": 7500,
+    "image": ["https://source.unsplash.com/random"],
+    "country": "USA",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rating": 4.5,
+    "state": "North Carolina",
+    "agent": {
+      "name": "Hussain Ahmed",
+      "phone": "+1 234 567 890",
+      "address": "North Carolina, USA",
+      "properties": 10
+    }
+  },
+  {
+    "id": 5,
+    "title": "Metro Jayakarta Hotel & Spa",
+    "address": "North Carolina, USA",
+    "facility": {
+      "beds": 10,
+      "baths": 2,
+      "area": "28M",
+      "smooking-area": true,
+      "kitchen": true,
+      "balcony": true,
+      "wifi": true,
+      "parking-area": true
+    },
+    "status": "sale",
+    "type": "apartments",
+    "price": 7500,
+    "image": ["https://source.unsplash.com/random"],
+    "country": "USA",
+    "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "rating": 4.5,
+    "state": "North Carolina",
+    "agent": {
+      "name": "Hussain Ahmed",
+      "phone": "+1 234 567 890",
+      "address": "North Carolina, USA",
+      "properties": 10
+    }
   }
 ]

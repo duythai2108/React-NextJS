@@ -5,7 +5,10 @@ import { useQuery } from "@tanstack/react-query";
 import { PropertyItemData } from "@/types/property.type";
 import { getProperties } from "@/store/property.services";
 import { Dropdown } from "@/components/dropdown";
+import { twMerge } from "tailwind-merge";
+
 import {
+  ITEMS_PER_PAGE,
   propertyStatusData,
   propertyTypeData,
 } from "@/constants/general.const";
@@ -17,6 +20,7 @@ import {
 import { debounce } from "lodash";
 
 const PropertyList = () => {
+  const [page, setPage] = useState<number>(1);
   const [selected, setSelected] = useState({
     statusText: "Any Status",
     typeText: "Any Type",
@@ -31,18 +35,23 @@ const PropertyList = () => {
     state: "",
   });
   const { data, isLoading, error } = useQuery({
-    queryKey: ["properties", filter.text, filter.status, filter.type],
+    queryKey: ["properties", filter.text, filter.status, filter.type, page],
     queryFn: () =>
       getProperties({
         text: filter.text,
         status: filter.status,
         type: filter.type,
+        offset: (page - 1) * ITEMS_PER_PAGE,
+        limit: ITEMS_PER_PAGE,
       }),
     // refetchOnWindowFocus: false,
     cacheTime: 10 * 60 * 1000, //10 min
     staleTime: 1 * 60 * 1000, //1 min
   });
-  const properties = data;
+  if (!data) return null;
+  const properties = data?.properties || [];
+  const total = data.total || 0;
+  const total_pages = Math.ceil(total / ITEMS_PER_PAGE);
   const handleFilterProperty = debounce(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setFilter({
@@ -153,14 +162,26 @@ const PropertyList = () => {
         className="flex items-center justify-between"
         aria-label="pagination"
       >
-        <p className="text-gray80">Showing 1 to 10 Propertys</p>
+        <p className="text-gray80">
+          Showing {ITEMS_PER_PAGE * page - 1} to {page * ITEMS_PER_PAGE} Propertys
+        </p>
         <div className="flex items-center gap-[10px]">
-          <button className="w-9 h-9 rounded-lg flex items-center justify-center text-white bg-primary">
-            1
-          </button>
-          <button className="w-9 h-9 rounded-lg flex items-center justify-center text-gray80 y">
-            2
-          </button>
+          {Array(total_pages)
+            .fill(0)
+            .map((item, index) => (
+              <button
+                key={index}
+                className={twMerge(
+                  "flex items-center justify-center rounded-lg w-9 h-9",
+                  page === index + 1
+                    ? "bg-primary text-white pointer-events-none"
+                    : ""
+                )}
+                onClick={() => setPage(index + 1)}
+              >
+                {index + 1}
+              </button>
+            ))}
         </div>
       </div>
     </div>
